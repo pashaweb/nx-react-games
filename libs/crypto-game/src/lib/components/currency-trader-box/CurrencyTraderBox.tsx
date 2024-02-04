@@ -10,7 +10,7 @@ export type CurrencyTraderBoxProps = {
     sellCrypto: (name: CryptoCurrency, amaunt: number) => void
 }
 export function CurrencyTraderBox(props: CurrencyTraderBoxProps) {
-    const { name, coins, buyCrypto, sellCrypto } = props
+    const { name, buyCrypto, sellCrypto } = props
     const [amount, setAmount] = useState(1000)
     const children = props.children
 

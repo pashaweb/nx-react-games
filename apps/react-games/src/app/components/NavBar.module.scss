@@ -1,7 +1,111 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+header {
+    background-color: $primary-color-800;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    width: 100%;
+
+    .logo {
+        display: inline-block;
+        color: $light-color;
+        font-size: 60px;
+        margin-left: 10px;
+    }
+
+    .nav {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: var(--black);
+        overflow: hidden;
+    }
+    .menu a {
+        display: block;
+        padding: 30px;
+        color: $light-color-100;
+    }
+    .menu a:hover {
+        background-color: $light-color-300;
+    }
+    .nav {
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
+    }
+
+    /* Menu Icon */
+    .hamb {
+        cursor: pointer;
+        float: right;
+        padding: 40px 20px;
+    }
+
+    /* Style label tag */
+
+    .hambLine {
+        background: $light-color-100;
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+    } /* Style span tag */
+
+    .hambLine::before,
+    .hambLine::after {
+        background: $light-color-100;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-out;
+        width: 100%;
+    }
+    .hambLine::before {
+        top: 5px;
+    }
+    .hambLine::after {
+        top: -5px;
+    }
+
+    .sideMenu {
+        display: none;
+    }
+
+    /* Toggle menu icon */
+    .sideMenu:checked ~ nav {
+        max-height: 100%;
+    }
+    .sideMenu:checked ~ .hamb .hamb-line {
+        background: transparent;
+    }
+    .sideMenu:checked ~ .hamb .hamb-line::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    .sideMenu:checked ~ .hamb .hamb-line::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    @media (min-width: 768px) {
+        .nav {
+            max-height: none;
+            top: 0;
+            position: relative;
+            float: right;
+            width: fit-content;
+            background-color: transparent;
+        }
+        .menu li {
+            float: left;
+        }
+        .menu a:hover {
+            background-color: transparent;
+            color: $light-color-300;
+        }
+
+        .hamb {
+            display: none;
+        }
+    }
+}
+/* Logo */
