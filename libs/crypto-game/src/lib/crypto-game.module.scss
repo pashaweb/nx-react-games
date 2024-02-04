@@ -1,0 +1,49 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.myMoney {
+    width: 90%;
+    max-width: 1000px;
+    margin: 5rem auto;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: aqua;
+    b {
+        font-weight: 600;
+    }
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 0.5rem;
+    }
+}
+
+$gap: clamp(1rem, 5vmin, 2rem);
+
+.fakeMasonry {
+    columns: 200px;
+    gap: $gap;
+    width: 80%;
+    max-width: 960px;
+    margin: 5rem auto;
+
+    margin: 5rem auto;
+
+    & > * {
+        break-inside: avoid;
+        margin-bottom: $gap;
+    }
+}

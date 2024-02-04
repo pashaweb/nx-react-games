@@ -1,0 +1,267 @@
+/* SCSS HEX */
+$imperial-red: #f94144ff;
+$orange-crayola: #f3722cff;
+$carrot-orange: #f8961eff;
+$coral: #f9844aff;
+$saffron: #f9c74fff;
+$pistachio: #90be6dff;
+$zomp: #43aa8bff;
+$dark-cyan: #4d908eff;
+$paynes-gray: #577590ff;
+$cerulean: #277da1ff;
+
+/* SCSS HSL */
+$imperial-red: hsla(359, 94%, 62%, 1);
+$orange-crayola: hsla(21, 89%, 56%, 1);
+$carrot-orange: hsla(33, 94%, 55%, 1);
+$coral: hsla(20, 94%, 63%, 1);
+$saffron: hsla(42, 93%, 64%, 1);
+$pistachio: hsla(94, 38%, 59%, 1);
+$zomp: hsla(162, 43%, 46%, 1);
+$dark-cyan: hsla(178, 30%, 43%, 1);
+$paynes-gray: hsla(208, 25%, 45%, 1);
+$cerulean: hsla(198, 61%, 39%, 1);
+
+/* SCSS RGB */
+$imperial-red: rgba(249, 65, 68, 1);
+$orange-crayola: rgba(243, 114, 44, 1);
+$carrot-orange: rgba(248, 150, 30, 1);
+$coral: rgba(249, 132, 74, 1);
+$saffron: rgba(249, 199, 79, 1);
+$pistachio: rgba(144, 190, 109, 1);
+$zomp: rgba(67, 170, 139, 1);
+$dark-cyan: rgba(77, 144, 142, 1);
+$paynes-gray: rgba(87, 117, 144, 1);
+$cerulean: rgba(39, 125, 161, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+    0deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-right: linear-gradient(
+    90deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-bottom: linear-gradient(
+    180deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-left: linear-gradient(
+    270deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-top-right: linear-gradient(
+    45deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-bottom-right: linear-gradient(
+    135deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-top-left: linear-gradient(
+    225deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-bottom-left: linear-gradient(
+    315deg,
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+$gradient-radial: radial-gradient(
+    #f94144ff,
+    #f3722cff,
+    #f8961eff,
+    #f9844aff,
+    #f9c74fff,
+    #90be6dff,
+    #43aa8bff,
+    #4d908eff,
+    #577590ff,
+    #277da1ff
+);
+
+//Color palette
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$light-color: #f8f9fa;
+$dark-color: #343a40;
+
+// Font family
+$font-family: 'Roboto', sans-serif;
+$font-family: 'Roboto Mono', monospace;
+
+// Topography
+$font-size-base: 16px;
+$line-height-base: 1.5;
+$headings-font-family: $font-family;
+$headings-font-weight: bold;
+$headings-line-height: 1.2;
+$headings-margin-bottom: 0.5rem;
+$paragraph-margin-bottom: 1rem;
+$lead-font-size: 1.25rem;
+$lead-font-weight: 300;
+$small-font-size: 0.875rem;
+$blockquote-small-font-size: 0.875rem;
+$blockquote-font-size: 1.25rem;
+$blockquote-border-color: $light-color;
+$hr-border-color: $light-color;
+$hr-border-width: 1px;
+$hr-margin-y: calc($line-height-base / 2);
+$hr-opacity: 0.25;
+$hr-padding-y: calc($line-height-base / 2);
+$hr-margin-top: $line-height-base;
+$hr-margin-bottom: $line-height-base;
+$mark-padding: 0.2em;
+$mark-bg: #fcf8e3;
+$dt-font-weight: bold;
+$dd-margin-bottom: 0.5rem;
+$code-font-size: 87.5%;
+$code-padding: 0.2em 0.4em;
+$code-bg: #f8f9fa;
+$kbd-padding: 0.2rem 0.4rem;
+$kbd-font-size: 87.5%;
+$kbd-color: #212529;
+$kbd-bg: #f8f9fa;
+$pre-color: $dark-color;
+$pre-scrollable-max-height: 340px;
+$pre-bg: #f8f9fa;
+$pre-border-color: $light-color;
+$pre-padding: 1rem;
+$pre-font-size: 0.875rem;
+$pre-line-height: 1.5;
+$pre-code-color: inherit;
+$pre-code-bg: transparent;
+$pre-code-border-radius: 0;
+$pre-code-padding: 0;
+$pre-scrollable-padding-bottom: $pre-padding;
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+);
+
+// Spacing
+$spacer: 1rem;
+
+$spacer-zero: 0;
+$spacer-xs: 0.25rem;
+$spacer-sm: 0.5rem;
+$spacer-md: 1rem;
+$spacer-lg: 1.5rem;
+$spacer-xl: 3rem;
+
+// Body
+$body-bg: #fff;
+$body-color: $dark-color;
+
+// Links
+$link-color: $primary-color;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+// Grid breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+// Grid containers
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+);
+
+// Grid columns
+$grid-columns: 12;
+$grid-gutter-width: 30px;
+$grid-gutters: (
+    0: 0,
+    1: calc($grid-gutter-width / 4),
+    2: calc($grid-gutter-width / 2),
+    3: $grid-gutter-width,
+);
+
+// Path: libs/shared/styles/vars.scss

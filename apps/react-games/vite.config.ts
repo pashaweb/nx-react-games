@@ -1,7 +1,8 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: __dirname,
@@ -23,6 +24,12 @@ export default defineConfig({
   // worker: {
   //  plugins: [ nxViteTsPaths() ],
   // },
+  
+  resolve: {
+    alias: {
+      '@theame': 'libs/shared/styles/',
+    },
+  },
 
   build: {
     outDir: '../../dist/apps/react-games',
@@ -30,6 +37,17 @@ export default defineConfig({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
+  },
+
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use 'sass:math';
+          @import '@theame/vars.scss';
+        `,
+      }
+    }
   },
 
   test: {
@@ -44,6 +62,10 @@ export default defineConfig({
     coverage: {
       reportsDirectory: '../../coverage/apps/react-games',
       provider: 'v8',
+    },
+    alias: {
+      '@theame': path.resolve(__dirname, '../../libs/shared/styles/'),
+      "@crypto-game": path.resolve(__dirname, "../../libs/crypto-game/src/lib/"),
     },
   },
 });

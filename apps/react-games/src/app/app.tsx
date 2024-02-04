@@ -1,13 +1,22 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
+import { Route, Routes } from 'react-router-dom';
+//import styles from './app.module.scss';
+import NavBar from './components/NavBar';
+import Home from './pages/home/Home';
+import CryptoGamePage from './pages/crypto-game/CryptoGamePage';
+import WordGamePage from './pages/word-game/WordGamePage';
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="react-games" />
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path='/crypto-game' element={<CryptoGamePage />} />
+        <Route path='/word-game' element={<WordGamePage />} />
+        <Route path="*" element={<h1>404</h1>} />
+      </Routes>
+    </>
   );
 }
 

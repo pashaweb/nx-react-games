@@ -1,0 +1,14 @@
+{
+    "eslint.format.enable": true,
+    "eslint.ignoreUntitled": true,
+    "eslint.run": "onSave",
+    "eslint.workingDirectories": [],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+  }
