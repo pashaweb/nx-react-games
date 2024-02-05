@@ -8,10 +8,17 @@
 
 .container {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    padding: 0 5rem;
+    margin: 0 auto;
+
+    h1.title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 1rem auto;
+        text-transform: capitalize;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .myMoney {
@@ -20,14 +27,44 @@
     margin: 5rem auto;
     font-size: 1.5rem;
     font-weight: 400;
-    background-color: aqua;
+    box-shadow: 0 0 0.5rem hsl(0 0% 0% / 35%);
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    $ratio: 5/2;
+
     b {
         font-weight: 600;
     }
     img {
-        width: 1.5rem;
-        height: 1.5rem;
+        border-radius: 0.5rem 0.5rem 0 0;
+        aspect-ratio: $ratio;
+        object-fit: cover;
+        width: 100%;
         margin-right: 0.5rem;
+    }
+    .title {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0;
+        text-transform: capitalize;
+    }
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        img {
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
+        .title {
+            font-size: 2.5rem;
+        }
     }
 }
 
