@@ -68,22 +68,24 @@ header {
 
     .sideMenu {
         display: none;
-    }
 
-    /* Toggle menu icon */
-    .sideMenu:checked ~ nav {
-        max-height: 100%;
-    }
-    .sideMenu:checked ~ .hamb .hamb-line {
-        background: transparent;
-    }
-    .sideMenu:checked ~ .hamb .hamb-line::before {
-        transform: rotate(-45deg);
-        top: 0;
-    }
-    .sideMenu:checked ~ .hamb .hamb-line::after {
-        transform: rotate(45deg);
-        top: 0;
+        /* Toggle menu icon */
+        &:checked {
+            & ~ .nav {
+                max-height: 100%;
+            }
+            & ~ .hamb .hamb-line {
+                background: transparent;
+            }
+            & ~ .hamb .hamb-line::before {
+                transform: rotate(-45deg);
+                top: 0;
+            }
+            & ~ .hamb .hamb-line::after {
+                transform: rotate(45deg);
+                top: 0;
+            }
+        }
     }
 
     @media (min-width: 768px) {

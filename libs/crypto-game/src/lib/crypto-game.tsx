@@ -87,12 +87,12 @@ export function CryptoGame() {
 
     return (
         <div className={styles.container}>
-            <h1>Welcome to CryptoGame!</h1>
+            <h1 className={styles.title}>Welcome to CryptoGame! </h1>
             <div className={styles.myMoney}>
                 <img src="/images/usd.png" alt="wallet" />
                 <div className={styles.title}>
                     <label>My wallet:</label>
-                    <b>{wallet.dollar}$</b>
+                    <div>{wallet.dollar}$</div>
                 </div>
             </div>
 
