@@ -1,11 +1,6 @@
 // FILEPATH: /home/pavel/DEV/react-games/apps/word-game/src/app/hooks/game-hook.test.ts
-import {
-    GameData,
-    LettersMap,
-    getGridData,
-    setActiveLetters,
-    type Address,
-} from './game-hook'
+import { Address, GameData, LettersMap } from '@word-game/types'
+import { getGridData, setActiveLetters } from './game-hook'
 
 describe('game hook', () => {
     describe('set leters data', () => {
@@ -48,7 +43,7 @@ describe('game hook', () => {
             }
 
             const grid: LettersMap = getGridData(data)
-            console.log(grid)
+            expect(grid.size).toBe(25)
         })
     })
 })

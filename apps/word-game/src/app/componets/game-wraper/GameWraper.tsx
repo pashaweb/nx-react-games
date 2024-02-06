@@ -1,26 +1,25 @@
-import useGamesData from '@word-game/app/hooks/games-data'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { GameData } from '../../../types'
+import useGamesData from '../../hooks/games-data'
 import Game from '../game/Game'
 import styles from './GameWraper.module.scss'
 
 /* eslint-disable-next-line */
 export interface GameWraperProps {}
 
-const gameData: GameData = {
-    source_language: 'en',
-    target_language: 'es',
-    word: 'hello',
-    character_grid: [
-        ['h', 'e', 'l', 'l', 'o'],
-        ['a', 'b', 'c', 'd', 'e'],
-        ['f', 'g', 'h', 'i', 'j'],
-        ['k', 'l', 'm', 'n', 'o'],
-        ['p', 'q', 'r', 's', 't'],
-    ],
-    word_locations: { '0,0,1,0,2,0,3,0,4,0': 'hello' },
-}
+// const gameData: GameData = {
+//     source_language: 'en',
+//     target_language: 'es',
+//     word: 'hello',
+//     character_grid: [
+//         ['h', 'e', 'l', 'l', 'o'],
+//         ['a', 'b', 'c', 'd', 'e'],
+//         ['f', 'g', 'h', 'i', 'j'],
+//         ['k', 'l', 'm', 'n', 'o'],
+//         ['p', 'q', 'r', 's', 't'],
+//     ],
+//     word_locations: { '0,0,1,0,2,0,3,0,4,0': 'hello' },
+// }
 
 export function GameWraper(props: GameWraperProps) {
     const { gameID } = useParams()
