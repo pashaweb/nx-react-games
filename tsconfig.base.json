@@ -16,7 +16,8 @@
         "baseUrl": ".",
         "paths": {
             "@crypto-game/*": ["libs/crypto-game/src/lib/*"],
-            "@react-games/shared": ["libs/shared/src/index.ts"]
+            "@react-games/shared": ["libs/shared/src/index.ts"],
+            "@word-game/*": ["apps/word-game/src/*"]
         }
     },
     "exclude": ["node_modules", "tmp"]
