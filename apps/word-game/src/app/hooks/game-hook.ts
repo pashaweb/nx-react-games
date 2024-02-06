@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import { Address, ComparePathsResult, GameData, LettersMap } from "../../types";
 
 export const handleCellClick = (address: Address, state: State): State => {
@@ -83,9 +83,7 @@ type UseGameHook = {
     state: State
     onCellClick: (address: Address) => void
     onCellMouseOver: (address: Address) => void
-    // setActive: () => void
-    // setWin: () => void
-    // reset: () => void
+    reset: (data: GameData) => void
 }
 
 
@@ -119,6 +117,9 @@ type Action = {
 } | {
     type: 'SET_WIN'
     payload: boolean
+} | {
+    type: 'RESET'
+    payload: GameData
 }
 
 
@@ -141,6 +142,11 @@ const reducer = (state: State, action: Action): State => {
 
         case 'SET_WIN':
             return { ...state, gameState: action.payload ? 'win' : 'active' };
+
+        case 'RESET':
+            return intHook(action.payload);
+
+
 
         default:
             return state;
@@ -167,13 +173,10 @@ const comparePaths = (pathsList: string[], currentPath: Address[]) => {
     }, acc);
 
     return t;
-
-
 }
 
 
-export function useGameHook(iniData: GameData): UseGameHook {
-
+const intHook = (iniData: GameData) => {
     const letters: LettersMap = new Map();
 
     iniData.character_grid.forEach((row, rowIndex) => {
@@ -193,6 +196,12 @@ export function useGameHook(iniData: GameData): UseGameHook {
         gameState: 'active',
     }
 
+    return initialState;
+}
+
+export function useGameHook(iniData: GameData): UseGameHook {
+
+    const initialState = intHook(iniData);
     const [state, dispatch] = useReducer(reducer, initialState);
     const onCellClick = (address: Address) => {
         let adr: Address[] = [];
@@ -237,10 +246,16 @@ export function useGameHook(iniData: GameData): UseGameHook {
         dispatch({ type: 'SET_ACTIVE_LETTERS', payload: newLetterrs });
     }
 
+    const reset = useCallback((data: GameData) => {
+        dispatch({ type: 'RESET', payload: data });
+    }, []);
+
+
     return {
         state,
         onCellClick,
-        onCellMouseOver
+        onCellMouseOver,
+        reset
     }
 }
 

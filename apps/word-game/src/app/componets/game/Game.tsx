@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { GameData } from '../../../types'
 import { useGameHook } from '../../hooks/game-hook'
 import GameGrid from '../GameGrid/GameGrid' // Fix the import path
@@ -9,8 +10,14 @@ export interface GameProps {
 }
 
 export function Game(props: GameProps) {
-    const { state, onCellClick, onCellMouseOver } = useGameHook(props.gameData)
-
+    console.log('Game render', props)
+    const { state, onCellClick, onCellMouseOver, reset } = useGameHook(
+        props.gameData
+    )
+    useEffect(() => {
+        console.log('Game useEffect', props)
+        reset(props.gameData)
+    }, [props, reset])
     return (
         <>
             {state.gameState === 'win' ? <h1>Win</h1> : <h1>Game</h1>}

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import useGamesData from '../../hooks/games-data'
 import Game from '../game/Game'
 import styles from './GameWraper.module.scss'
@@ -22,25 +22,50 @@ export interface GameWraperProps {}
 // }
 
 export function GameWraper(props: GameWraperProps) {
+    console.log('GameWraper', props)
     const { gameID } = useParams()
-    const { state, init } = useGamesData()
+
+    const { state, init, setCurrentGame } = useGamesData()
     useEffect(() => {
         init()
     }, [init])
+
+    useEffect(() => {
+        console.log('gameID', gameID)
+        if (gameID && state.allGamesData) {
+            const id = gameID ? parseInt(gameID) : 0
+            const game = state.allGamesData[id]
+
+            if (game) {
+                setCurrentGame(game)
+
+                // setTimeout(() => {
+                // }, 0)
+            }
+        }
+    }, [gameID, state.allGamesData, setCurrentGame])
 
     return (
         <>
             <div className={styles['container']}>
                 <h1>Welcome to GameWraper! {gameID} </h1>
+                <nav>
+                    <ul>
+                        {state.allGamesData.map((game, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link to={`/${index}`}>Game {index}</Link>
+                                </li>
+                            )
+                        })}
+                    </ul>
+                </nav>
                 <div>
-                    {state.allGamesData.map((game, index) => {
-                        return (
-                            <div key={index}>
-                                <h2>{game.word}</h2>
-                                <Game gameData={game} />
-                            </div>
-                        )
-                    })}
+                    {state.currentGame ? (
+                        <Game gameData={state.currentGame} />
+                    ) : (
+                        <div>Game not found</div>
+                    )}
                 </div>
             </div>
             {/* <div>

@@ -38,11 +38,7 @@ type Action = {
     }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export type UseGamesData = {
-    state: State;
-    init: () => void;
 
-}
 
 
 const reducer = (state: State, action: Action): State => {
@@ -72,6 +68,13 @@ const reducer = (state: State, action: Action): State => {
     }
 }
 
+export type UseGamesData = {
+    state: State;
+    init: () => void;
+    setCurrentGame: (data: GameData) => void;
+
+}
+
 export function useGamesData(): UseGamesData {
     const initialState: State = {
         currentGameID: '',
@@ -87,19 +90,22 @@ export function useGamesData(): UseGamesData {
     const init = useCallback(async () => {
         dispatch({ type: 'SET_STATUS', payload: 'loading' });
         const data = await fetchGamesData();
-        dispatch({ type: 'SET_GAME_DATA', payload: data[0] });
         dispatch({ type: 'SET_STATUS', payload: 'idle' });
         dispatch({ type: 'SET_ALL_GAMES_DATA', payload: data });
+        // dispatch({ type: 'SET_GAME_DATA', payload: data[0] });
 
+    }, []);
+
+    const setCurrentGame = useCallback((data: GameData) => {
+        console.log('setCurrentGame', data)
+        dispatch({ type: 'SET_GAME_DATA', payload: data });
     }, []);
 
     return {
         state,
-        init
+        init,
+        setCurrentGame
     };
-
-
-
 }
 
 export default useGamesData
