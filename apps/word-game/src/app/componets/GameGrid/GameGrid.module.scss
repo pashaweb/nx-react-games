@@ -1,0 +1,20 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+.greed {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin: 0 auto;
+
+    button {
+        all: unset;
+        margin: 0;
+        cursor: pointer;
+    }
+}

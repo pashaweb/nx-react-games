@@ -27,6 +27,7 @@ export function NavBar(props: NavBarProps) {
                 type="checkbox"
                 id="side-menu"
                 checked={open}
+                readOnly
             />
             <label
                 onClick={() => togeleOpen()}

@@ -1,0 +1,30 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+div.letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 1rem;
+}
+
+.active {
+    background-color: #ebd46d;
+}
+
+.win {
+    background-color: #ace0ac;
+}
