@@ -79,7 +79,7 @@ type State = {
 
 }
 
-type UseGameHook = {
+export type UseGameHook = {
     state: State
     onCellClick: (address: Address) => void
     onCellMouseOver: (address: Address) => void
@@ -119,7 +119,7 @@ type Action = {
     payload: boolean
 } | {
     type: 'RESET'
-    payload: GameData
+    payload: State
 }
 
 
@@ -144,7 +144,7 @@ const reducer = (state: State, action: Action): State => {
             return { ...state, gameState: action.payload ? 'win' : 'active' };
 
         case 'RESET':
-            return intHook(action.payload);
+            return { ...state, letters: action.payload.letters, winPath: action.payload.winPath, gameState: action.payload.gameState };
 
 
 
@@ -188,14 +188,13 @@ const intHook = (iniData: GameData) => {
     const winPath = Object.keys(iniData.word_locations);
 
     const initialState: State = {
-        letters: letters,
+        letters,
         startPoint: null,
         endPoint: null,
         currentPath: [],
         winPath,
         gameState: 'active',
     }
-
     return initialState;
 }
 
@@ -247,7 +246,9 @@ export function useGameHook(iniData: GameData): UseGameHook {
     }
 
     const reset = useCallback((data: GameData) => {
-        dispatch({ type: 'RESET', payload: data });
+        const newState = intHook(data);
+        dispatch({ type: 'RESET', payload: newState });
+        dispatch({ type: 'SET_ACTIVE_LETTERS', payload: newState.letters });
     }, []);
 
 
@@ -259,4 +260,4 @@ export function useGameHook(iniData: GameData): UseGameHook {
     }
 }
 
-export default useGameHook
+export default useGameHook;
