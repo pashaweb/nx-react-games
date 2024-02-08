@@ -21,7 +21,7 @@ export function GameWraper() {
                     {state.allGamesData.map((game, index) => {
                         return (
                             <li key={index}>
-                                <Link to={`/${index}`}>Game {index}</Link>
+                                <Link to={`${index}`}>Game {index}</Link>
                             </li>
                         )
                     })}
