@@ -10,10 +10,10 @@ export interface GameProps {
 
 export function Game(props: GameProps) {
     const { state, onCellClick, onCellMouseOver } = useGameHook(props.gameData)
-
     return (
         <>
             {state.gameState === 'win' ? <h1>Win</h1> : <h1>Game</h1>}
+            <code>{JSON.stringify(props, null, 2)}</code>
             <GameGrid
                 grid={state.letters}
                 cellClick={onCellClick}
