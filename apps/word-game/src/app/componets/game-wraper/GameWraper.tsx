@@ -8,12 +8,14 @@ export function GameWraper() {
     const { gameID } = useParams()
     const id = gameID ? parseInt(gameID) : 0
 
+
     const { state, init } = useGamesData()
     useEffect(() => {
         init()
     }, [init])
 
     return (
+
         <div className={styles['container']}>
             <h1>Welcome to GameWraper! {gameID} </h1>
             <nav>

@@ -1,3 +1,4 @@
+
 import { useCallback, useReducer } from "react";
 import { Address, ComparePathsResult, GameData, LettersMap } from "../../types";
 
@@ -145,9 +146,6 @@ const reducer = (state: State, action: Action): State => {
 
         case 'RESET':
             return { ...state, letters: action.payload.letters, winPath: action.payload.winPath, gameState: action.payload.gameState };
-
-
-
         default:
             return state;
     }

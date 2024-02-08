@@ -40,7 +40,6 @@ type Action = {
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 
 
-
 const reducer = (state: State, action: Action): State => {
     switch (action.type) {
         case 'SRET_CURRENT_GAME_ID':
@@ -106,6 +105,7 @@ export function useGamesData(): UseGamesData {
         init,
         setCurrentGame
     };
+
 }
 
 export default useGamesData
