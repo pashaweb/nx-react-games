@@ -1,12 +1,10 @@
-import { CryptoGame } from '@crypto-game/crypto-game'
+import CryptoGameQueryContainer from '@crypto-game/CriptoGameQueryContainer'
 
-/* eslint-disable-next-line */
-export interface CryptoGamePageProps {}
-
-export function CryptoGamePage(props: CryptoGamePageProps) {
+export function CryptoGamePage() {
     return (
         <main>
-            <CryptoGame />
+            <h1>Welcome to crypto-game!</h1>
+            <CryptoGameQueryContainer />
         </main>
     )
 }
