@@ -1,6 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import { useCallback, useReducer } from 'react';
-import { CryptoCurrencyList, CryptoRateLatest, CryptoRates, Wallet } from '../types';
-import { setLocalStorage } from '../utils/utils';
+import { CryptoCurrencyList, CryptoData, CryptoRateLatest, CryptoRates, Wallet } from '../types';
+import { getUpdatededCriptoRateLatest, getUpdatededCryptoRates, setLocalStorage } from '../utils/utils';
 
 type State = {
   currencyRates: CryptoRates;
@@ -79,11 +80,35 @@ export type CryptoGameHook = {
   setWallet: (payload: Wallet) => void;
 }
 
-
-
-
-
 export function useCryptoGameHook() {
+
+  useQuery({
+    queryKey: ['crypto-rates'],
+    queryFn: async () => {
+      const response = await fetch(
+        'https://api.coincap.io/v2/assets?limit=10'
+      )
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+      const data = await response.json()
+      const cryptoData = data.data as CryptoData[]
+
+      const newRates = getUpdatededCryptoRates(state.currencyRates, cryptoData)
+      const newRatesLatest = getUpdatededCriptoRateLatest(
+        state.criptoRateLatest,
+        cryptoData
+      )
+      setCurrencyRates(newRates)
+      setCriptoRateLatest(newRatesLatest)
+
+      return data
+    },
+    refetchInterval: 1000,
+  })
+
+
+
 
   const _currencyRates: CryptoRates = localStorage.getItem('currencyRates') ?
     JSON.parse(localStorage.getItem('currencyRates') || '') as CryptoRates
@@ -129,6 +154,11 @@ export function useCryptoGameHook() {
       payload,
     });
   }, []);
+
+  //const onDataFetch = useCallback((data: CryptoData[]) => { }, [])
+
+
+
 
   return {
     state,
